@@ -31,15 +31,18 @@
             {% endfor %}
         </nav>
     </div>
-
-    <div class="p-4 p-md-5 mb-5 text-white rounded-4 main-hero" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1200x500/2c3e50/white?text=Featured+Image+Placeholder');">
-        <div class="col-md-7 px-0">
-            <span class="badge bg-warning text-dark mb-2">Featured</span>
-            <h1 class="display-4 font-serif italic">Main Featured Headline Content Goes Here</h1>
-            <p class="lead my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p class="lead mb-0"><a href="#" class="text-white fw-bold">Read More →</a></p>
+    {% for post in featured %}
+    {% if forloop.first %}
+        <div class="p-4 p-md-5 mb-5 text-white rounded-4 main-hero" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1200x500/2c3e50/white?text=Featured+Image+Placeholder');">
+            <div class="col-md-7 px-0">
+                <span class="badge bg-warning text-dark mb-2">Featured</span>
+                <h1 class="display-4 font-serif italic">{{ post.title }}</h1>
+                <p class="lead my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="lead mb-0"><a href="#" class="text-white fw-bold">Read More →</a></p>
+            </div>
         </div>
-    </div>
+    {% endif %}
+    {% endfor %}
 
     <div class="row mb-5">
         <div class="col-md-6">
