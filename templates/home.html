@@ -26,13 +26,9 @@
 
     <div class="nav-scroller py-1 mb-4 border-bottom border-top">
         <nav class="nav d-flex justify-content-between">
-            <a class="p-2 link-secondary" href="#">Category 1</a>
-            <a class="p-2 link-secondary" href="#">Category 2</a>
-            <a class="p-2 link-secondary" href="#">Category 3</a>
-            <a class="p-2 link-secondary" href="#">Category 4</a>
-            <a class="p-2 link-secondary" href="#">Category 5</a>
-            <a class="p-2 link-secondary" href="#">Category 6</a>
-            <a class="p-2 link-secondary" href="#">Category 7</a>
+            {% for c in categories %}
+            <a class="p-2 link-secondary" href="#">{{ c.category_name }}</a>
+            {% endfor %}
         </nav>
     </div>
 
