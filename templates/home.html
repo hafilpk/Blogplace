@@ -76,7 +76,7 @@
             <article class="blog-post mb-5">
                 <h2 class="blog-post-title mb-1">{{p.title}}</h2>
                 <p class="blog-post-meta">{{ p.created_at | timesince }} ago by <a href="#">{{ p.author }}</a></p>
-                <p>{{ p.short_description }}</p>
+                <p>{{ p.short_description | truncatewords:15 }}</p>
                 <p>{{ p.blog_body }}</p>
             </article>
             {% endfor %}
