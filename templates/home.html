@@ -7,7 +7,7 @@
                 <span class="badge bg-warning text-dark mb-2">Featured</span>
                 <h1 class="display-4 font-serif italic">{{ post.title }}</h1>
                 <p class="lead my-3">{{ post.short_description }}</p>
-                <p class="lead mb-0"><a href="#" class="text-white fw-bold">Read More →</a></p>
+                <p class="lead mb-0"><a href="{% url 'blogs' post.slug %}" class="text-white fw-bold">Read More →</a></p>
             </div>
         </div>
     {% endif %}
@@ -24,7 +24,7 @@
                     <h3 class="mb-0">{{ posts.title }}</h3>
                     <div class="mb-1 text-muted">Jan 01</div>
                     <p class="card-text mb-auto">{{ post.short_description }}</p>
-                    <a href="#" class="stretched-link">Continue reading</a>
+                    <a href="{% url 'blogs' posts.slug %}" class="stretched-link">Continue reading</a>
                 </div>
                 <div class="col-auto d-none d-lg-block">
                     <img src="https://placehold.co/200x250/e0e0e0/666666?text=Thumbnail" alt="Placeholder">
@@ -42,7 +42,7 @@
             <h3 class="pb-4 mb-4 border-bottom font-serif italic">Recent Posts</h3>
             {% for p in post %}
             <article class="blog-post mb-5">
-                <h2 class="blog-post-title mb-1">{{p.title}}</h2>
+                <h2 class="display-16 font-serif italic"><a href="{% url 'blogs' p.slug %}" class="text-dark">{{ p.title }}</a></h2>
                 <p class="blog-post-meta">{{ p.created_at | timesince }} ago by <a href="#">{{ p.author }}</a></p>
                 <p>{{ p.short_description | truncatewords:15 }}</p>
                 <p>{{ p.blog_body }}</p>
