@@ -7,7 +7,6 @@ def home(request):
     categories = Category.objects.all()
     post = Blog.objects.filter(is_featured=False, status='Published')
     context = {
-        'categories':categories,
         'featured': featured,
         'post': post,
     }
