@@ -1,30 +1,5 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-</head>
-<body>
-
-<div class="container">
-    <header class="blog-header py-4">
-        <div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-4">
-                <a class="blog-header-logo" href="#">Site<span>Logo</span></a>
-            </div>
-            <div class="col-4 d-flex justify-content-end align-items-center">
-                <a class="btn btn-login me-2" href="#">Login</a>
-                <a class="btn btn-register" href="#">Register</a>
-            </div>
-        </div>
-    </header>
-    <div class="col-md-8">
-        <h3 class="pb-4 mb-4 border-bottom font-serif italic">{{ category }}</h3>
+{% extends 'base.html' %}
+    {% block content %}
         {% if posts %}
         {% for p in posts %}
         <article class="blog-post mb-5">
@@ -37,12 +12,4 @@
         {% else %}
         <p>No posts found</p>
         {% endif %}
-    </div>    
-</div>
-<footer class="blog-footer py-5 mt-5 bg-dark text-white text-center">
-    <p>blogs &copy; 2026 | Developed by <a href="#" class="text-warning">Muhammed Hafil</a></p>
-    <p><a href="#" class="text-white-50">Back to top</a></p>
-</footer>
-
-</body>
-</html>
+    {% endblock %}
