@@ -56,14 +56,16 @@
                     <h4 class="fw-bold">About Section</h4>
                     <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
+                {% if social_media %}
                 <div class="p-4">
                     <h4 class="fw-bold">Follow Me</h4>
                     <ol class="list-unstyled">
-                        <li><a href="#" class="text-decoration-none text-dark">Social Link 1</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark">Social Link 2</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark">Social Link 3</a></li>
+                        {% for s in social_media %}
+                        <li><a href="#" class="text-decoration-none text-dark">{{ s.name }}</a></li>
+                        {% endfor %}
                     </ol>
                 </div>
+                {% endif %}
             </div>
         </aside>
     </main>
