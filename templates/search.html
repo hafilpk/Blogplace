@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3 class="text-warning" style="letter-spacing: 2px;">Search Term - {{ keyword }}</h3>
+    {% if blogs %}
+    {% for blog in blogs %}
+    <article class="blog-post mb-5">
+        <h2 class="blog-post-title mb-1"><a href="{% url "blogs" p.slug %}" class= "text-dark">{{blog.title}}</a></h2>
+        <p class="blog-post-meta">{{ blog.created_at | timesince }} ago by <a href="#">{{ blog.author }}</a></p>
+        <p>{{ blog.short_description | truncatewords:15 }}</p>
+        <p>{{ blog.blog_body }}</p>
+    </article>
+    {% endfor %}
+    {% else %}a
+    <p>No posts found</p>
+    {% endif %}
+{% endblock %}
