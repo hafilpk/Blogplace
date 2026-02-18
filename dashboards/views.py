@@ -1,4 +1,14 @@
 from django.shortcuts import render
+from blog.models import Blog, Category
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='login')
 def dashboard(request):
-    return render(request, 'dashboards/dashboard.html')
+    category_count = Category.objects.all().count()
+    blogs_count = Blog.objects.all().count()
+
+    context = {
+        'category_count': category_count,
+        'blogs_count': blogs_count,
+    }
+    return render(request, 'dashboards/dashboard.html', context)
