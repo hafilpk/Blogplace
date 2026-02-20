@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from blog.models import Blog, Category
 from django.contrib.auth.decorators import login_required
+from .forms import AddUserForm, BlogPostForm, CategoryForm, EditUserForm
 
 @login_required(login_url='login')
 def dashboard(request):
@@ -14,4 +15,16 @@ def dashboard(request):
     return render(request, 'dashboards/dashboard.html', context)
 
 def categories(request):
-    return render(request, 'dashboards/categories.html')    
+    return render(request, 'dashboards/categories.html')   
+
+def add_category(request):
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('categories')
+    form = CategoryForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'dashboard/add_category.html', context)
