@@ -14,4 +14,4 @@ def dashboard(request):
     return render(request, 'dashboards/dashboard.html', context)
 
 def categories(request):
-    return render(request, 'dashboard/categories.html')    
+    return render(request, 'dashboards/categories.html')    
